@@ -1,0 +1,28 @@
+<div>
+    <form>
+        Search your pokemon :
+        <input 
+        name="citySearch"
+        type="text"
+        [(ngModel)]="citySearch">
+        <button
+            (click)="searchCity()">
+            Search
+        </button>
+    </form>
+</div>
+
+<div *ngIf="isSearch">
+    <p>Le temps annocé est : {{weatherResult.weather[0].description}}</p>
+    <img [src]="URLicon" alt="Weather icon">
+    <p>Température Minimal : {{weatherResult.main.temp_min - 273.15}} °C</p>
+    <p>Température Maximal : {{weatherResult.main.temp_max - 273.15}} °C</p>
+    <p>Température Moyenne : {{weatherResult.main.temp - 273.15}} °C</p>
+    <p>L'humidité sera de : {{weatherResult.main.humidity}}%</p>
+    <p>La vitesse du vent sera de : {{weatherResult.wind.speed}} mètre par seconde</p>
+    <button
+        (click)="goToDetails(weatherResult.name)">
+        Go to Météo France for more details
+    </button>
+</div>
+
