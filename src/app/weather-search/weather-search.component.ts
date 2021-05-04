@@ -34,12 +34,6 @@ export class WeatherSearchComponent implements OnInit {
     window.open(`https://www.xn--mto-bmab.fr/` + name, "_blank");
   }
 
-  // getIconWeather(name){
-  //   this.weatherDataService.getWeather(name).subscribe((iconResponse: any) =>
-  //   {
-
-  //   })
-  // }
 
   ngOnInit(): void {
   }

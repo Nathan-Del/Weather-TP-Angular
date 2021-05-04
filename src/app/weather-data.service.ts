@@ -8,6 +8,7 @@ export class WeatherDataService {
 
   constructor(private http: HttpClient) { }
 
+  //cette requête devais servir pour les prévisions sur plusieurs jour mais j'ai perdu du temps avec le style.
   getWeatherForweek(name: string){
     return this.http.get(`api.openweathermap.org/data/2.5/forecast/daily?q=${name}&cnt=14&appid=`);
   }
