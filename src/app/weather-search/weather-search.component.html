@@ -1,28 +1,49 @@
-<div>
-    <form>
-        Search your pokemon :
-        <input 
-        name="citySearch"
-        type="text"
-        [(ngModel)]="citySearch">
-        <button
-            (click)="searchCity()">
-            Search
-        </button>
-    </form>
-</div>
+<form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Nom de la ville :</label>
+
+      <input name="citySearch" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your city" [(ngModel)]="citySearch">
+
+      <small id="emailHelp" class="form-text text-muted">Attention le detail lien vers météo fr, ne fonctionne qu'avec des ville française</small>
+
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="searchCity()">Submit</button>
+  </form>
+
+<br>
+<br>
+<br>
 
 <div *ngIf="isSearch">
-    <p>Le temps annocé est : {{weatherResult.weather[0].description}}</p>
+    <p>-----------------------------------------------------------</p>
+    <!-- <p>Le temps annocé est : {{weatherResult.weather[0].description}}</p>
     <img [src]="URLicon" alt="Weather icon">
     <p>Température Minimal : {{weatherResult.main.temp_min - 273.15}} °C</p>
     <p>Température Maximal : {{weatherResult.main.temp_max - 273.15}} °C</p>
     <p>Température Moyenne : {{weatherResult.main.temp - 273.15}} °C</p>
     <p>L'humidité sera de : {{weatherResult.main.humidity}}%</p>
     <p>La vitesse du vent sera de : {{weatherResult.wind.speed}} mètre par seconde</p>
-    <button
+
+    <button 
+    type="button" class="btn btn-success"
+    (click)="goToDetails(weatherResult.name)">
+    Go to Météo fr for more details
+    </button> -->
+    <ul class="list-group">
+        <li class="list-group-item">Le temps annocé est : {{weatherResult.weather[0].description}}</li>
+      
+        <img [src]="URLicon" alt="Weather icon">
+        <li class="list-group-item list-group-item-secondary">    <p>Température Maximal : {{weatherResult.main.temp_max - 273.15}} °C</p></li>
+        <li class="list-group-item list-group-item-success">Température Minimal : {{weatherResult.main.temp_min - 273.15}} °C</li>
+        <li class="list-group-item list-group-item-danger">Température Moyenne : {{weatherResult.main.temp - 273.15}} °C</li>
+        <li class="list-group-item list-group-item-info">L'humidité sera de : {{weatherResult.main.humidity}}%</li>
+        <li class="list-group-item list-group-item-secondary">La vitesse du vent sera de : {{weatherResult.wind.speed}} mètre par seconde</li>
+        <button 
+        type="button" class="btn btn-success"
         (click)="goToDetails(weatherResult.name)">
-        Go to Météo France for more details
-    </button>
+        Go to Météo fr for more details
+        </button>
+      </ul>
 </div>
+
 
